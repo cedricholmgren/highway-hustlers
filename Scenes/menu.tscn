@@ -13,15 +13,29 @@ grow_vertical = 2
 script = ExtResource("1_l4clb")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("2_22jbc")
+expand_mode = 3
+stretch_mode = 6
 
 [node name="Main_menu" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.5
+offset_top = -27.5
+offset_right = 20.5
+offset_bottom = 27.5
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Play" type="Button" parent="Main_menu"]
 layout_mode = 2
@@ -29,6 +43,8 @@ text = "Play"
 
 [node name="Options" type="Button" parent="Main_menu"]
 layout_mode = 2
+text = "Options"
 
 [node name="Quit" type="Button" parent="Main_menu"]
 layout_mode = 2
+text = "Quit"

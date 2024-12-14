@@ -8,5 +8,12 @@ func _ready() -> void:
 	$Main_menu/Quit.pressed.connect(self._on_quit_pressed)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _on_play_pressed():
+	print("play pressed")
+	
+func _on_options_pressed():
+	print("options pressed")
+	
+func _on_quit_pressed():
+	get_tree().quit()
+	
