@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://ce1ew8eacupuw"]
+
+[ext_resource type="Texture2D" uid="uid://bsbto3y3owq15" path="res://Assets/truck.webp" id="1_1ug0t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ntajw"]
+size = Vector2(30, 52)
+
+[node name="Truck" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_1ug0t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ntajw")
+
+[node name="Camera2D" type="Camera2D" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dlvngx7revh5l"]
+[gd_scene load_steps=3 format=3 uid="uid://bbnbdidchlvnb"]
 
 [ext_resource type="Script" path="res://Scripts/control.gd" id="1_l4clb"]
 [ext_resource type="Texture2D" uid="uid://cvpyn6ebgsoi0" path="res://Assets/Highway_Hustlers.webp" id="2_22jbc"]
