@@ -1,7 +1,88 @@
-[gd_scene load_steps=2 format=3 uid="uid://bk6f1knrq63sh"]
+[gd_scene load_steps=12 format=3 uid="uid://bk6f1knrq63sh"]
 
 [ext_resource type="PackedScene" uid="uid://ce1ew8eacupuw" path="res://Scenes/truck.tscn" id="1_ti1nf"]
+[ext_resource type="Texture2D" uid="uid://hoxa2wtevr05" path="res://Assets/hospital.png" id="2_n2cwv"]
+[ext_resource type="Texture2D" uid="uid://olxbxlqvcgqr" path="res://Assets/farm.png" id="3_bsvft"]
+[ext_resource type="Texture2D" uid="uid://c6jtvljae8oor" path="res://Assets/school.png" id="4_1i0jh"]
+[ext_resource type="Texture2D" uid="uid://kjxtav6bblsr" path="res://Assets/airport.png" id="5_ngsjb"]
+[ext_resource type="Texture2D" uid="uid://cl15s5662pjah" path="res://Assets/firestation.png" id="6_slyqs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2s2lh"]
+size = Vector2(116, 152)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_keoxy"]
+size = Vector2(140, 136)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e8v6n"]
+size = Vector2(175, 130)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y3di4"]
+size = Vector2(104, 104)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7yq4h"]
+size = Vector2(133, 158)
 
 [node name="Game" type="Node2D"]
 
 [node name="Truck" parent="." instance=ExtResource("1_ti1nf")]
+position = Vector2(184, 208)
+
+[node name="Buildings" type="Node2D" parent="."]
+position = Vector2(21, -38)
+
+[node name="Hospital" type="Area2D" parent="Buildings"]
+position = Vector2(59, -208)
+
+[node name="Sprite2D" type="Sprite2D" parent="Buildings/Hospital"]
+texture = ExtResource("2_n2cwv")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/Hospital"]
+shape = SubResource("RectangleShape2D_2s2lh")
+metadata/_edit_lock_ = true
+
+[node name="Farm" type="Area2D" parent="Buildings"]
+position = Vector2(307, 123)
+
+[node name="Sprite2D" type="Sprite2D" parent="Buildings/Farm"]
+texture = ExtResource("3_bsvft")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/Farm"]
+shape = SubResource("RectangleShape2D_keoxy")
+metadata/_edit_lock_ = true
+
+[node name="School" type="Area2D" parent="Buildings"]
+position = Vector2(-197, 54)
+
+[node name="Sprite2D" type="Sprite2D" parent="Buildings/School"]
+texture = ExtResource("4_1i0jh")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/School"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_e8v6n")
+metadata/_edit_lock_ = true
+
+[node name="Airport" type="Area2D" parent="Buildings"]
+position = Vector2(-189, -136)
+
+[node name="Sprite2D" type="Sprite2D" parent="Buildings/Airport"]
+texture = ExtResource("5_ngsjb")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/Airport"]
+shape = SubResource("RectangleShape2D_y3di4")
+metadata/_edit_lock_ = true
+
+[node name="Firestation" type="Area2D" parent="Buildings"]
+position = Vector2(245, -134)
+
+[node name="Sprite2D" type="Sprite2D" parent="Buildings/Firestation"]
+texture = ExtResource("6_slyqs")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/Firestation"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_7yq4h")
+metadata/_edit_lock_ = true
