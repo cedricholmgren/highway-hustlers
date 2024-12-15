@@ -28,13 +28,13 @@ size = Vector2(133, 158)
 [node name="Game" type="Node2D"]
 
 [node name="Truck" parent="." instance=ExtResource("1_ti1nf")]
-position = Vector2(184, 208)
+position = Vector2(44, -3)
 
 [node name="Buildings" type="Node2D" parent="."]
 position = Vector2(21, -38)
 
 [node name="Hospital" type="Area2D" parent="Buildings"]
-position = Vector2(59, -208)
+position = Vector2(19, -155)
 script = ExtResource("2_x317h")
 
 [node name="Sprite2D" type="Sprite2D" parent="Buildings/Hospital"]
@@ -46,7 +46,7 @@ shape = SubResource("RectangleShape2D_2s2lh")
 metadata/_edit_lock_ = true
 
 [node name="Farm" type="Area2D" parent="Buildings"]
-position = Vector2(307, 123)
+position = Vector2(223, 185)
 script = ExtResource("2_x317h")
 
 [node name="Sprite2D" type="Sprite2D" parent="Buildings/Farm"]
@@ -58,7 +58,7 @@ shape = SubResource("RectangleShape2D_keoxy")
 metadata/_edit_lock_ = true
 
 [node name="School" type="Area2D" parent="Buildings"]
-position = Vector2(-197, 54)
+position = Vector2(-182, 37)
 script = ExtResource("2_x317h")
 
 [node name="Sprite2D" type="Sprite2D" parent="Buildings/School"]
@@ -71,7 +71,7 @@ shape = SubResource("RectangleShape2D_e8v6n")
 metadata/_edit_lock_ = true
 
 [node name="Airport" type="Area2D" parent="Buildings"]
-position = Vector2(-189, -136)
+position = Vector2(-4, 190)
 script = ExtResource("2_x317h")
 
 [node name="Sprite2D" type="Sprite2D" parent="Buildings/Airport"]
@@ -83,7 +83,7 @@ shape = SubResource("RectangleShape2D_y3di4")
 metadata/_edit_lock_ = true
 
 [node name="Firestation" type="Area2D" parent="Buildings"]
-position = Vector2(245, -134)
+position = Vector2(176, -35)
 script = ExtResource("2_x317h")
 
 [node name="Sprite2D" type="Sprite2D" parent="Buildings/Firestation"]
