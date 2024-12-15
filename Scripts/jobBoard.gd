@@ -7,7 +7,7 @@ var active_jobs: Array = []  # List of active jobs (loads)
 var buildings: Array = []  # List of all building nodes
 
 func _ready():
-	var main_node = get_tree().root.get_node("Main")
+	var main_node = get_tree().root.get_node("Game")
 	if main_node:
 		var buildings_node = main_node.get_node("Buildings")
 		if buildings_node:
@@ -50,7 +50,7 @@ func create_job():
 
 	# Notify others that a load has been created
 	emit_signal("load_created", new_load)
-	print("Job created: Pickup at %s, Dropoff at %s" % [pickup.building_name, dropoff.building_name])
+	print("Job created: Pickup at %s, Dropoff at %s" % [pickup.name, dropoff.name])
 	
 func on_load_picked_up(load, truck):
 	if load.carrying_truck != truck:

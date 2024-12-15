@@ -1,11 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://bk6f1knrq63sh"]
+[gd_scene load_steps=15 format=3 uid="uid://bk6f1knrq63sh"]
 
 [ext_resource type="PackedScene" uid="uid://ce1ew8eacupuw" path="res://Scenes/truck.tscn" id="1_ti1nf"]
 [ext_resource type="Texture2D" uid="uid://hoxa2wtevr05" path="res://Assets/hospital.png" id="2_n2cwv"]
+[ext_resource type="Script" path="res://Scripts/building.gd" id="2_x317h"]
 [ext_resource type="Texture2D" uid="uid://olxbxlqvcgqr" path="res://Assets/farm.png" id="3_bsvft"]
 [ext_resource type="Texture2D" uid="uid://c6jtvljae8oor" path="res://Assets/school.png" id="4_1i0jh"]
 [ext_resource type="Texture2D" uid="uid://kjxtav6bblsr" path="res://Assets/airport.png" id="5_ngsjb"]
 [ext_resource type="Texture2D" uid="uid://cl15s5662pjah" path="res://Assets/firestation.png" id="6_slyqs"]
+[ext_resource type="PackedScene" uid="uid://gih5mnoc1iyf" path="res://Scenes/jobBoard.tscn" id="7_pfo4g"]
+[ext_resource type="PackedScene" uid="uid://cssb6x4en6crg" path="res://Scenes/load.tscn" id="8_xk2ed"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2s2lh"]
 size = Vector2(116, 152)
@@ -32,6 +35,7 @@ position = Vector2(21, -38)
 
 [node name="Hospital" type="Area2D" parent="Buildings"]
 position = Vector2(59, -208)
+script = ExtResource("2_x317h")
 
 [node name="Sprite2D" type="Sprite2D" parent="Buildings/Hospital"]
 texture = ExtResource("2_n2cwv")
@@ -43,6 +47,7 @@ metadata/_edit_lock_ = true
 
 [node name="Farm" type="Area2D" parent="Buildings"]
 position = Vector2(307, 123)
+script = ExtResource("2_x317h")
 
 [node name="Sprite2D" type="Sprite2D" parent="Buildings/Farm"]
 texture = ExtResource("3_bsvft")
@@ -54,6 +59,7 @@ metadata/_edit_lock_ = true
 
 [node name="School" type="Area2D" parent="Buildings"]
 position = Vector2(-197, 54)
+script = ExtResource("2_x317h")
 
 [node name="Sprite2D" type="Sprite2D" parent="Buildings/School"]
 texture = ExtResource("4_1i0jh")
@@ -66,6 +72,7 @@ metadata/_edit_lock_ = true
 
 [node name="Airport" type="Area2D" parent="Buildings"]
 position = Vector2(-189, -136)
+script = ExtResource("2_x317h")
 
 [node name="Sprite2D" type="Sprite2D" parent="Buildings/Airport"]
 texture = ExtResource("5_ngsjb")
@@ -77,6 +84,7 @@ metadata/_edit_lock_ = true
 
 [node name="Firestation" type="Area2D" parent="Buildings"]
 position = Vector2(245, -134)
+script = ExtResource("2_x317h")
 
 [node name="Sprite2D" type="Sprite2D" parent="Buildings/Firestation"]
 texture = ExtResource("6_slyqs")
@@ -86,3 +94,12 @@ metadata/_edit_lock_ = true
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_7yq4h")
 metadata/_edit_lock_ = true
+
+[node name="JobBoard" parent="." instance=ExtResource("7_pfo4g")]
+load_scene = ExtResource("8_xk2ed")
+
+[connection signal="body_entered" from="Buildings/Hospital" to="Buildings/Hospital" method="_on_building_body_entered"]
+[connection signal="body_entered" from="Buildings/Farm" to="Buildings/Farm" method="_on_building_body_entered"]
+[connection signal="body_entered" from="Buildings/School" to="Buildings/School" method="_on_building_body_entered"]
+[connection signal="body_entered" from="Buildings/Airport" to="Buildings/Airport" method="_on_building_body_entered"]
+[connection signal="body_entered" from="Buildings/Firestation" to="Buildings/Firestation" method="_on_building_body_entered"]
