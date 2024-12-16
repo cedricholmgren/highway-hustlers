@@ -27,41 +27,42 @@ func _ready():
 
 
 func create_job():
-	# Randomly select pickup and drop-off buildings
 	var pickup = buildings[randi() % buildings.size()]
 	var dropoff = buildings[randi() % buildings.size()]
-	while dropoff == pickup:  # Ensure pickup and drop-off are different
+	while dropoff == pickup:
 		dropoff = buildings[randi() % buildings.size()]
-	
+
 	if load_scene == null:
 		print("error load_scene not found")
 		return
-	# Create a new load
-	var new_load = load_scene.instantiate()
 
+	var new_load = load_scene.instantiate()
 	new_load.pickup = pickup
 	new_load.dropoff = dropoff
-	add_child(new_load)  # Add the load as a child of the JobBoard
+	add_child(new_load)
 	active_jobs.append(new_load)
 	
+	# Add the load to the pickup building’s available loads
+	if pickup.has_method("add_load"):
+		pickup.add_load(new_load)
+
 	new_load.connect("load_picked_up", Callable(self, "on_load_picked_up"))
 	new_load.connect("load_delivered", Callable(self, "on_load_delivered"))
 
-
-	# Notify others that a load has been created
 	emit_signal("load_created", new_load)
 	print("Job created: Pickup at %s, Dropoff at %s" % [pickup.name, dropoff.name])
+
 	
 func on_load_picked_up(load, truck):
 	if load.carrying_truck != truck:
 		print("Load already picked up by another truck")
 		return
-	print("Load picked up:", load.name, "by truck:", truck.name, "at building:", load.pickup)
+	print("Load picked up: ", load.name, "at building: ", load.pickup)
 
 func on_load_delivered(load, truck):
 	if load.carrying_truck != truck:
 		print("This truck is not carrying this load")
 		return
-	print("Load delivered:", load.name, "by truck:", truck.name)
+	print("Load delivered: ", load.name, "at building: ", load.dropoff)
 	active_jobs.erase(load)  # Remove the job from active jobs
 	load.queue_free()  # Remove the load from the scene
