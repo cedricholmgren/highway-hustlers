@@ -1,5 +1,6 @@
 extends Control
 
+var map_gen: bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -7,10 +8,14 @@ func _ready() -> void:
 	$Main_menu/Options.pressed.connect(self._on_options_pressed)
 	$Main_menu/Quit.pressed.connect(self._on_quit_pressed)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _is_map_gen(map_generated):
+	map_gen = map_generated
+	print(map_gen)
+
 func _on_play_pressed():
-	print("play pressed")
+	print("Play pressed")
 	call_deferred("change_scene", "res://Scenes/game.tscn")  
+
 
 func _on_options_pressed():
 	print("options pressed")

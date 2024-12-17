@@ -1,5 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://bk6f1knrq63sh"]
+[gd_scene load_steps=16 format=3 uid="uid://bk6f1knrq63sh"]
 
+[ext_resource type="PackedScene" uid="uid://capr38lgl6piv" path="res://Scenes/map.tscn" id="1_dspt3"]
 [ext_resource type="PackedScene" uid="uid://ce1ew8eacupuw" path="res://Scenes/truck.tscn" id="1_ti1nf"]
 [ext_resource type="Texture2D" uid="uid://hoxa2wtevr05" path="res://Assets/hospital.png" id="2_n2cwv"]
 [ext_resource type="Script" path="res://Scripts/building.gd" id="2_x317h"]
@@ -26,6 +27,8 @@ size = Vector2(104, 104)
 size = Vector2(133, 158)
 
 [node name="Game" type="Node2D"]
+
+[node name="Map" parent="." instance=ExtResource("1_dspt3")]
 
 [node name="Truck" parent="." instance=ExtResource("1_ti1nf")]
 position = Vector2(44, -3)
