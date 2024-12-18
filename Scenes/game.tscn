@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bk6f1knrq63sh"]
+[gd_scene load_steps=8 format=3 uid="uid://bk6f1knrq63sh"]
 
 [ext_resource type="PackedScene" uid="uid://capr38lgl6piv" path="res://Scenes/map.tscn" id="1_dspt3"]
 [ext_resource type="PackedScene" uid="uid://ce1ew8eacupuw" path="res://Scenes/truck.tscn" id="1_ti1nf"]
 [ext_resource type="PackedScene" uid="uid://crta7alfyuuog" path="res://Scenes/buildings.tscn" id="3_oa2so"]
+[ext_resource type="Script" path="res://Scripts/truck2.gd" id="3_scba2"]
 [ext_resource type="PackedScene" uid="uid://bprd4f0mbwxj1" path="res://Scenes/pause.tscn" id="6_4s7i4"]
 [ext_resource type="PackedScene" uid="uid://gih5mnoc1iyf" path="res://Scenes/jobBoard.tscn" id="7_pfo4g"]
 [ext_resource type="PackedScene" uid="uid://cssb6x4en6crg" path="res://Scenes/load.tscn" id="8_xk2ed"]
@@ -12,7 +13,11 @@
 [node name="Map" parent="." instance=ExtResource("1_dspt3")]
 
 [node name="Truck" parent="." instance=ExtResource("1_ti1nf")]
-position = Vector2(126, 163)
+position = Vector2(267, 180)
+
+[node name="Truck2" parent="." instance=ExtResource("1_ti1nf")]
+position = Vector2(267, 180)
+script = ExtResource("3_scba2")
 
 [node name="Buildings" parent="." instance=ExtResource("3_oa2so")]
 visible = false
