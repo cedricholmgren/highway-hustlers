@@ -2,21 +2,41 @@ extends Node2D
 
 @onready var autogen = $autogen
 @export var noise_height_text: NoiseTexture2D
-
 var noise: Noise
 var map_initialized: bool = false
 var loaded_chunks: Dictionary = {}
-const MAP_SIZE: int = 100
+var new_seed = 0
+var MAP_SIZE_X = 100
+var MAP_SIZE_Y = 100
 const TILE_SIZE: int = 16
 var water_tile = 1
 var grass_tile = 0
 var map_gen = false
 
-func _ready() -> void:
+
+func _process_seed(seed_value: int) ->void:
+	new_seed = seed_value
+	print(new_seed, seed_value)
+	
+func _redefine_map_x(set_map_x: int) -> void:
+	MAP_SIZE_X = set_map_x
+	print("x:", set_map_x, MAP_SIZE_X)
+	
+func _redefine_map_y(set_map_y: int) -> void:
+	MAP_SIZE_Y = set_map_y
+	print("y:", set_map_y, MAP_SIZE_Y)
+
+func _ready():
+	print("mappers:", new_seed, MAP_SIZE_X, MAP_SIZE_Y)
 	noise = noise_height_text.noise
+	noise.set_seed(new_seed)
+	initialize_map()
 	gen_map()
 	place_buildings()
-
+	
+func initialize_map() -> void:
+	print("values:", new_seed, MAP_SIZE_X, MAP_SIZE_Y)
+	
 func gen_map() -> void:
 	if map_gen == true:
 		return
@@ -24,9 +44,9 @@ func gen_map() -> void:
 	map_gen = true
 	var water_tiles: Array[Vector2i] = []
 	var grass_tiles: Array[Vector2i] = []
-
-	for x in range(MAP_SIZE):
-		for y in range(MAP_SIZE):
+	print("Generating map with - Seed:", new_seed, "X:", MAP_SIZE_X, "Y:", MAP_SIZE_Y)
+	for x in range(MAP_SIZE_X):
+		for y in range(MAP_SIZE_Y):
 			var noise_val: float = noise.get_noise_2d(x, y)
 			var tile_pos = Vector2i(x, y)
 

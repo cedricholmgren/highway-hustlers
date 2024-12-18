@@ -1,16 +1,16 @@
 [gd_scene load_steps=3 format=3 uid="uid://dlvngx7revh5l"]
 
-[ext_resource type="Script" path="res://Scripts/control.gd" id="1_l4clb"]
+[ext_resource type="Script" path="res://Scripts/menu.gd" id="1_vp2jy"]
 [ext_resource type="Texture2D" uid="uid://cvpyn6ebgsoi0" path="res://Assets/Highway_Hustlers.webp" id="2_22jbc"]
 
-[node name="Control" type="Control"]
+[node name="menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_l4clb")
+script = ExtResource("1_vp2jy")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -48,3 +48,50 @@ text = "Options"
 [node name="Quit" type="Button" parent="Main_menu"]
 layout_mode = 2
 text = "Quit"
+
+[node name="Options" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -145.5
+offset_top = -50.5
+offset_right = 145.5
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Options"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Options/HBoxContainer"]
+layout_mode = 2
+text = "Seed:"
+
+[node name="Seed" type="LineEdit" parent="Options/HBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Options"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Options/HBoxContainer2"]
+layout_mode = 2
+text = "Map Width:"
+
+[node name="map_x" type="LineEdit" parent="Options/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="Options/HBoxContainer2"]
+layout_mode = 2
+text = "Height:"
+
+[node name="map_y" type="LineEdit" parent="Options/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Back" type="Button" parent="Options"]
+layout_mode = 2
+text = "Back"
