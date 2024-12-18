@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://bprd4f0mbwxj1"]
+
+[ext_resource type="Script" path="res://Scripts/pause.gd" id="1_k0nh0"]
+
+[node name="pause" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k0nh0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="main_menu" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Main Menu"
+
+[node name="quit_game" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Quit"

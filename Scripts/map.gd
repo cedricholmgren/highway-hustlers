@@ -4,27 +4,24 @@ extends Node2D
 @export var noise_height_text: NoiseTexture2D
 
 var noise: Noise
-var map_initialized: bool = false  # Prevent multiple initializations
+var map_initialized: bool = false
 var loaded_chunks: Dictionary = {}
-const TERRAIN_WATER: int = 0
-const TERRAIN_GRASS: int = 0
-const MAP_SIZE: int = 100  # Size of the map (100x100 tiles)
-const TILE_SIZE: int = 16  # Size of each tile in pixels
+const MAP_SIZE: int = 100
+const TILE_SIZE: int = 16
 var water_tile = 1
 var grass_tile = 0
 var map_gen = false
 
-
 func _ready() -> void:
 	noise = noise_height_text.noise
 	gen_map()
+	place_buildings()
 
 func gen_map() -> void:
 	if map_gen == true:
-		return  # Exit if the map has already been generated
+		return
 	
-	map_gen = true  # Mark the map as generated
-
+	map_gen = true
 	var water_tiles: Array[Vector2i] = []
 	var grass_tiles: Array[Vector2i] = []
 
@@ -47,3 +44,17 @@ func gen_map() -> void:
 		"water_tiles": water_tiles,
 		"grass_tiles": grass_tiles
 	}
+
+# Place buildings using the grass_tiles
+func place_buildings() -> void:
+	var buildings_scene = load("res://Scenes/buildings.tscn")
+	var buildings_instance = buildings_scene.instantiate()
+
+	# Convert Vector2i to Vector2 for consistency
+	var grass_tile_list = []
+	for tile in loaded_chunks["map"]["grass_tiles"]:
+		grass_tile_list.append(Vector2(tile.x, tile.y))
+
+	# Add buildings to the scene and process the tiles
+	add_child(buildings_instance)
+	buildings_instance.process_tiles(grass_tile_list)

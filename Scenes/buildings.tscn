@@ -1,0 +1,100 @@
+[gd_scene load_steps=13 format=3 uid="uid://crta7alfyuuog"]
+
+[ext_resource type="Script" path="res://Scripts/building.gd" id="1_ct3lu"]
+[ext_resource type="Script" path="res://Scripts/buildings.gd" id="1_lj7gc"]
+[ext_resource type="Texture2D" uid="uid://hoxa2wtevr05" path="res://Assets/hospital.png" id="2_7gu3j"]
+[ext_resource type="Texture2D" uid="uid://olxbxlqvcgqr" path="res://Assets/farm.png" id="3_la61o"]
+[ext_resource type="Texture2D" uid="uid://c6jtvljae8oor" path="res://Assets/school.png" id="4_qxdt6"]
+[ext_resource type="Texture2D" uid="uid://kjxtav6bblsr" path="res://Assets/airport.png" id="5_2q3ef"]
+[ext_resource type="Texture2D" uid="uid://cl15s5662pjah" path="res://Assets/firestation.png" id="6_pu1nj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2s2lh"]
+size = Vector2(116, 152)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_keoxy"]
+size = Vector2(140, 136)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e8v6n"]
+size = Vector2(175, 130)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y3di4"]
+size = Vector2(104, 104)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7yq4h"]
+size = Vector2(133, 158)
+
+[node name="Buildings" type="Node2D"]
+script = ExtResource("1_lj7gc")
+
+[node name="Hospital" type="Area2D" parent="."]
+position = Vector2(-518, -723)
+script = ExtResource("1_ct3lu")
+
+[node name="Sprite2D" type="Sprite2D" parent="Hospital"]
+texture = ExtResource("2_7gu3j")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hospital"]
+shape = SubResource("RectangleShape2D_2s2lh")
+metadata/_edit_lock_ = true
+
+[node name="Farm" type="Area2D" parent="."]
+position = Vector2(-280, -134)
+script = ExtResource("1_ct3lu")
+
+[node name="Sprite2D" type="Sprite2D" parent="Farm"]
+texture = ExtResource("3_la61o")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Farm"]
+shape = SubResource("RectangleShape2D_keoxy")
+metadata/_edit_lock_ = true
+
+[node name="School" type="Area2D" parent="."]
+position = Vector2(-731, -475)
+script = ExtResource("1_ct3lu")
+
+[node name="Sprite2D" type="Sprite2D" parent="School"]
+texture = ExtResource("4_qxdt6")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="School"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_e8v6n")
+metadata/_edit_lock_ = true
+
+[node name="Airport" type="Area2D" parent="."]
+position = Vector2(-525, -165)
+script = ExtResource("1_ct3lu")
+
+[node name="Sprite2D" type="Sprite2D" parent="Airport"]
+texture = ExtResource("5_2q3ef")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Airport"]
+shape = SubResource("RectangleShape2D_y3di4")
+metadata/_edit_lock_ = true
+
+[node name="Firestation" type="Area2D" parent="."]
+position = Vector2(-159, -368)
+script = ExtResource("1_ct3lu")
+
+[node name="Sprite2D" type="Sprite2D" parent="Firestation"]
+texture = ExtResource("6_pu1nj")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Firestation"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_7yq4h")
+metadata/_edit_lock_ = true
+
+[connection signal="body_entered" from="Hospital" to="Hospital" method="_on_building_body_entered"]
+[connection signal="body_exited" from="Hospital" to="Hospital" method="_on_building_body_exited"]
+[connection signal="body_entered" from="Farm" to="Farm" method="_on_building_body_entered"]
+[connection signal="body_exited" from="Farm" to="Farm" method="_on_building_body_exited"]
+[connection signal="body_entered" from="School" to="School" method="_on_building_body_entered"]
+[connection signal="body_exited" from="School" to="School" method="_on_building_body_exited"]
+[connection signal="body_entered" from="Airport" to="Airport" method="_on_building_body_entered"]
+[connection signal="body_exited" from="Airport" to="Airport" method="_on_building_body_exited"]
+[connection signal="body_entered" from="Firestation" to="Firestation" method="_on_building_body_entered"]
+[connection signal="body_exited" from="Firestation" to="Firestation" method="_on_building_body_exited"]

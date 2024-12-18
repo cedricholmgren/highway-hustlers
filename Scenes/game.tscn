@@ -1,30 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://bk6f1knrq63sh"]
+[gd_scene load_steps=7 format=3 uid="uid://bk6f1knrq63sh"]
 
 [ext_resource type="PackedScene" uid="uid://capr38lgl6piv" path="res://Scenes/map.tscn" id="1_dspt3"]
 [ext_resource type="PackedScene" uid="uid://ce1ew8eacupuw" path="res://Scenes/truck.tscn" id="1_ti1nf"]
-[ext_resource type="Texture2D" uid="uid://hoxa2wtevr05" path="res://Assets/hospital.png" id="2_n2cwv"]
-[ext_resource type="Script" path="res://Scripts/building.gd" id="2_x317h"]
-[ext_resource type="Texture2D" uid="uid://olxbxlqvcgqr" path="res://Assets/farm.png" id="3_bsvft"]
-[ext_resource type="Texture2D" uid="uid://c6jtvljae8oor" path="res://Assets/school.png" id="4_1i0jh"]
-[ext_resource type="Texture2D" uid="uid://kjxtav6bblsr" path="res://Assets/airport.png" id="5_ngsjb"]
-[ext_resource type="Texture2D" uid="uid://cl15s5662pjah" path="res://Assets/firestation.png" id="6_slyqs"]
+[ext_resource type="PackedScene" uid="uid://crta7alfyuuog" path="res://Scenes/buildings.tscn" id="3_oa2so"]
+[ext_resource type="PackedScene" uid="uid://bprd4f0mbwxj1" path="res://Scenes/pause.tscn" id="6_4s7i4"]
 [ext_resource type="PackedScene" uid="uid://gih5mnoc1iyf" path="res://Scenes/jobBoard.tscn" id="7_pfo4g"]
 [ext_resource type="PackedScene" uid="uid://cssb6x4en6crg" path="res://Scenes/load.tscn" id="8_xk2ed"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2s2lh"]
-size = Vector2(116, 152)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_keoxy"]
-size = Vector2(140, 136)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_e8v6n"]
-size = Vector2(175, 130)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_y3di4"]
-size = Vector2(104, 104)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7yq4h"]
-size = Vector2(133, 158)
 
 [node name="Game" type="Node2D"]
 
@@ -33,91 +14,18 @@ size = Vector2(133, 158)
 [node name="Truck" parent="." instance=ExtResource("1_ti1nf")]
 position = Vector2(126, 163)
 
-[node name="Buildings" type="Node2D" parent="."]
-position = Vector2(21, -38)
-
-[node name="Hospital" type="Area2D" parent="Buildings"]
-position = Vector2(594, 457)
-script = ExtResource("2_x317h")
-
-[node name="Sprite2D" type="Sprite2D" parent="Buildings/Hospital"]
-texture = ExtResource("2_n2cwv")
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/Hospital"]
-shape = SubResource("RectangleShape2D_2s2lh")
-metadata/_edit_lock_ = true
-
-[node name="Farm" type="Area2D" parent="Buildings"]
-position = Vector2(798, 797)
-script = ExtResource("2_x317h")
-
-[node name="Sprite2D" type="Sprite2D" parent="Buildings/Farm"]
-texture = ExtResource("3_bsvft")
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/Farm"]
-shape = SubResource("RectangleShape2D_keoxy")
-metadata/_edit_lock_ = true
-
-[node name="School" type="Area2D" parent="Buildings"]
-position = Vector2(393, 649)
-script = ExtResource("2_x317h")
-
-[node name="Sprite2D" type="Sprite2D" parent="Buildings/School"]
-texture = ExtResource("4_1i0jh")
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/School"]
-position = Vector2(-0.5, 0)
-shape = SubResource("RectangleShape2D_e8v6n")
-metadata/_edit_lock_ = true
-
-[node name="Airport" type="Area2D" parent="Buildings"]
-position = Vector2(571, 802)
-script = ExtResource("2_x317h")
-
-[node name="Sprite2D" type="Sprite2D" parent="Buildings/Airport"]
-texture = ExtResource("5_ngsjb")
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/Airport"]
-shape = SubResource("RectangleShape2D_y3di4")
-metadata/_edit_lock_ = true
-
-[node name="Firestation" type="Area2D" parent="Buildings"]
-position = Vector2(751, 577)
-script = ExtResource("2_x317h")
-
-[node name="Sprite2D" type="Sprite2D" parent="Buildings/Firestation"]
-texture = ExtResource("6_slyqs")
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/Firestation"]
-position = Vector2(-0.5, 0)
-shape = SubResource("RectangleShape2D_7yq4h")
-metadata/_edit_lock_ = true
+[node name="Buildings" parent="." instance=ExtResource("3_oa2so")]
+visible = false
 
 [node name="JobBoard" parent="." instance=ExtResource("7_pfo4g")]
 load_scene = ExtResource("8_xk2ed")
 
-[connection signal="body_entered" from="Buildings/Hospital" to="Buildings/Hospital" method="_on_building_body_entered"]
-[connection signal="body_exited" from="Buildings/Hospital" to="Buildings/Hospital" method="_on_building_body_exited"]
-[connection signal="truck_arrived" from="Buildings/Hospital" to="Truck" method="_on_building_truck_arrived"]
-[connection signal="truck_departed" from="Buildings/Hospital" to="Truck" method="_on_building_truck_departed"]
-[connection signal="body_entered" from="Buildings/Farm" to="Buildings/Farm" method="_on_building_body_entered"]
-[connection signal="body_exited" from="Buildings/Farm" to="Buildings/Farm" method="_on_building_body_exited"]
-[connection signal="truck_arrived" from="Buildings/Farm" to="Truck" method="_on_building_truck_arrived"]
-[connection signal="truck_departed" from="Buildings/Farm" to="Truck" method="_on_building_truck_departed"]
-[connection signal="body_entered" from="Buildings/School" to="Buildings/School" method="_on_building_body_entered"]
-[connection signal="body_exited" from="Buildings/School" to="Buildings/School" method="_on_building_body_exited"]
-[connection signal="truck_arrived" from="Buildings/School" to="Truck" method="_on_building_truck_arrived"]
-[connection signal="truck_departed" from="Buildings/School" to="Truck" method="_on_building_truck_departed"]
-[connection signal="body_entered" from="Buildings/Airport" to="Buildings/Airport" method="_on_building_body_entered"]
-[connection signal="body_exited" from="Buildings/Airport" to="Buildings/Airport" method="_on_building_body_exited"]
-[connection signal="truck_arrived" from="Buildings/Airport" to="Truck" method="_on_building_truck_arrived"]
-[connection signal="truck_departed" from="Buildings/Airport" to="Truck" method="_on_building_truck_departed"]
-[connection signal="body_entered" from="Buildings/Firestation" to="Buildings/Firestation" method="_on_building_body_entered"]
-[connection signal="body_exited" from="Buildings/Firestation" to="Buildings/Firestation" method="_on_building_body_exited"]
-[connection signal="truck_arrived" from="Buildings/Firestation" to="Truck" method="_on_building_truck_arrived"]
-[connection signal="truck_departed" from="Buildings/Firestation" to="Truck" method="_on_building_truck_departed"]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="pause" parent="CanvasLayer" instance=ExtResource("6_4s7i4")]
+visible = false
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1

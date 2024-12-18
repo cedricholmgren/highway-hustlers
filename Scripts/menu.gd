@@ -14,6 +14,7 @@ func _is_map_gen(map_generated):
 
 func _on_play_pressed():
 	print("Play pressed")
+	Engine.time_scale = 1
 	call_deferred("change_scene", "res://Scenes/game.tscn")  
 
 
