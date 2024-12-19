@@ -26,17 +26,17 @@ func _redefine_map_y(set_map_y: int) -> void:
 	MAP_SIZE_Y = set_map_y
 	print("y:", set_map_y, MAP_SIZE_Y)
 
+func initialize_map(seed_value: int, set_map_x: int, set_map_y: int) -> void:
+	print("Initializing map with seed:", seed_value, "X:", set_map_x, "Y:", set_map_y)
+
 func _ready():
 	print("mappers:", new_seed, MAP_SIZE_X, MAP_SIZE_Y)
+	initialize_map(new_seed, MAP_SIZE_X, MAP_SIZE_Y)
 	noise = noise_height_text.noise
 	noise.set_seed(new_seed)
-	initialize_map()
 	gen_map()
 	place_buildings()
-	
-func initialize_map() -> void:
-	print("values:", new_seed, MAP_SIZE_X, MAP_SIZE_Y)
-	
+
 func gen_map() -> void:
 	if map_gen == true:
 		return

@@ -28,9 +28,15 @@ func _on_play_pressed():
 	print("play pressed")
 	var map_scene = load("res://Scenes/map.tscn")
 	var map_instance = map_scene.instantiate()
-	map_instance._process_seed(seed_value)  # Send the seed to the map
-	map_instance._redefine_map_x(set_map_x)
-	map_instance._redefine_map_y(set_map_y)
+
+	# Set variables directly on the instance before adding it to the scene tree
+	map_instance.new_seed = seed_value
+	map_instance.MAP_SIZE_X = set_map_x
+	map_instance.MAP_SIZE_Y = set_map_y
+
+	# Add to the scene tree to trigger `_ready()`
+	add_child(map_instance)
+
 	call_deferred("change_scene", "res://Scenes/game.tscn")  
 
 func _on_options_pressed():
