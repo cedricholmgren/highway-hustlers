@@ -1,0 +1,77 @@
+[gd_scene load_steps=3 format=3 uid="uid://1wn32ix7kxx4"]
+
+[ext_resource type="Script" path="res://Scripts/gen_options.gd" id="1_2pgwj"]
+[ext_resource type="Texture2D" uid="uid://3ln7vppsyo2y" path="res://Assets/Highway_Hustlers_options_screen.webp" id="2_27kea"]
+
+[node name="gen_options" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2pgwj")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_27kea")
+expand_mode = 3
+stretch_mode = 6
+
+[node name="gen_options" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -145.5
+offset_top = -50.5
+offset_right = 145.5
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Play" type="Button" parent="gen_options"]
+layout_mode = 2
+text = "Play"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="gen_options"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="gen_options/HBoxContainer"]
+layout_mode = 2
+text = "Seed:"
+
+[node name="Seed" type="LineEdit" parent="gen_options/HBoxContainer"]
+layout_mode = 2
+text = "0"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="gen_options"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="gen_options/HBoxContainer2"]
+layout_mode = 2
+text = "Map Width:"
+
+[node name="map_x" type="LineEdit" parent="gen_options/HBoxContainer2"]
+layout_mode = 2
+text = "100"
+
+[node name="Label2" type="Label" parent="gen_options/HBoxContainer2"]
+layout_mode = 2
+text = "Height:"
+
+[node name="map_y" type="LineEdit" parent="gen_options/HBoxContainer2"]
+layout_mode = 2
+text = "100"
+
+[node name="Back" type="Button" parent="gen_options"]
+layout_mode = 2
+text = "Back"

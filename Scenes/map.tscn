@@ -1,16 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://capr38lgl6piv"]
+[gd_scene load_steps=3 format=3 uid="uid://capr38lgl6piv"]
 
 [ext_resource type="Script" path="res://Scripts/map.gd" id="1_wymep"]
 [ext_resource type="TileSet" uid="uid://ctkl4rxwhy4do" path="res://Assets/water_in_grass/tileset_water_in_grass.tres" id="2_8r7fu"]
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_rhqeo"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_fbf4d"]
-noise = SubResource("FastNoiseLite_rhqeo")
-
 [node name="Map" type="Node2D"]
 script = ExtResource("1_wymep")
-noise_height_text = SubResource("NoiseTexture2D_fbf4d")
 
 [node name="autogen" type="TileMapLayer" parent="."]
 tile_set = ExtResource("2_8r7fu")
