@@ -21,9 +21,9 @@ func _on_play_pressed():
 	var chunk_data = generate_chunks(seed, map_size_x, map_size_y)
 
 	# Load the game scene and pass chunk data
-	var game_scene = load("res://Scenes/game.tscn").instantiate()
+	var game_scene = load("res://Scenes/game_rework.tscn").instantiate()
 	game_scene.set_map_data(chunk_data)
-	call_deferred("change_scene", "res://Scenes/game.tscn")
+	call_deferred("change_scene", "res://Scenes/game_rework.tscn")
 
 func generate_chunks(seed: int, map_size_x: int, map_size_y: int) -> Dictionary:
 	var noise = FastNoiseLite.new()
