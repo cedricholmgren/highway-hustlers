@@ -33,6 +33,13 @@ func _ready():
 	initialize_map()
 	gen_map()
 	place_buildings()
+	CreateJob.create_job()
+	CreateJob.create_job()
+	CreateJob.create_job()
+	CreateJob.create_job()
+	CreateJob.create_job()
+	CreateJob.create_job()
+
 	
 func initialize_map() -> void:
 	print("values:", new_seed, MAP_SIZE_X, MAP_SIZE_Y)
@@ -59,7 +66,7 @@ func gen_map() -> void:
 		autogen.set_cells_terrain_connect(grass_tiles, 0, grass_tile, false)
 	if water_tiles.size() > 0:
 		autogen.set_cells_terrain_connect(water_tiles, 0, water_tile, false)
-
+		
 	loaded_chunks["map"] = {
 		"water_tiles": water_tiles,
 		"grass_tiles": grass_tiles
@@ -78,3 +85,4 @@ func place_buildings() -> void:
 	# Add buildings to the scene and process the tiles
 	add_child(buildings_instance)
 	buildings_instance.process_tiles(grass_tile_list)
+	print(buildings_instance.get_path())

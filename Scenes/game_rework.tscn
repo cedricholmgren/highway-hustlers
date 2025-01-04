@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://d0ofksnn15n3q"]
+[gd_scene load_steps=8 format=3 uid="uid://d0ofksnn15n3q"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_wsfbb"]
 [ext_resource type="PackedScene" uid="uid://capr38lgl6piv" path="res://Scenes/map_rework.tscn" id="2_mxd7l"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" path="res://Scripts/truck2.gd" id="4_jxoe4"]
 [ext_resource type="PackedScene" uid="uid://crta7alfyuuog" path="res://Scenes/buildings.tscn" id="5_ms1xq"]
 [ext_resource type="PackedScene" uid="uid://gih5mnoc1iyf" path="res://Scenes/jobBoard.tscn" id="6_sjk83"]
-[ext_resource type="PackedScene" uid="uid://cssb6x4en6crg" path="res://Scenes/load.tscn" id="7_15x7q"]
 [ext_resource type="PackedScene" uid="uid://bprd4f0mbwxj1" path="res://Scenes/pause.tscn" id="8_5hvsi"]
 
 [node name="Game" type="Node2D"]
@@ -16,6 +15,10 @@ script = ExtResource("1_wsfbb")
 
 [node name="Truck" parent="." instance=ExtResource("3_r0jwo")]
 position = Vector2(267, 180)
+speed = 100.0
+acceleration = 200.0
+deceleration = 400.0
+rotation_speed = 1.5
 
 [node name="Truck2" parent="." instance=ExtResource("3_r0jwo")]
 position = Vector2(267, 180)
@@ -25,7 +28,6 @@ script = ExtResource("4_jxoe4")
 visible = false
 
 [node name="JobBoard" parent="." instance=ExtResource("6_sjk83")]
-load_scene = ExtResource("7_15x7q")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
