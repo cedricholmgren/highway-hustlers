@@ -64,34 +64,6 @@ offset_bottom = 50.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Options"]
-layout_mode = 2
-alignment = 1
-
-[node name="Label" type="Label" parent="Options/HBoxContainer"]
-layout_mode = 2
-text = "Seed:"
-
-[node name="Seed" type="LineEdit" parent="Options/HBoxContainer"]
-layout_mode = 2
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="Options"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Options/HBoxContainer2"]
-layout_mode = 2
-text = "Map Width:"
-
-[node name="map_x" type="LineEdit" parent="Options/HBoxContainer2"]
-layout_mode = 2
-
-[node name="Label2" type="Label" parent="Options/HBoxContainer2"]
-layout_mode = 2
-text = "Height:"
-
-[node name="map_y" type="LineEdit" parent="Options/HBoxContainer2"]
-layout_mode = 2
-
 [node name="Back" type="Button" parent="Options"]
 layout_mode = 2
 text = "Back"

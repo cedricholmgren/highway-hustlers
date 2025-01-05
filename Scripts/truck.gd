@@ -52,7 +52,7 @@ func _try_dropoff() -> void:
 			break
 func _get_close_buildings() -> Array:
    # Return a list of buildings near the truck.
-	var buildings_node = get_tree().get_current_scene().get_node("Map/Buildings")
+	var buildings_node = get_tree().get_current_scene().get_node("/root/Game/Buildings")
 	if buildings_node == null:
 		return []
 	var close_buildings: Array = []

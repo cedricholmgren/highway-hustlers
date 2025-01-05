@@ -2,7 +2,7 @@ extends Node
 class_name create_job
 
 func create_job() -> void:
-	var buildings_parent = get_node("/root/Game/Map/Buildings")
+	var buildings_parent = get_node("/root/Game/Buildings")
 	var buildings_list: Array[Building] = []
 
 	for child in buildings_parent.get_children():

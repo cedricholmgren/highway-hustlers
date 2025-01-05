@@ -72,6 +72,27 @@ text = "Height:"
 layout_mode = 2
 text = "100"
 
+[node name="HBoxContainer3" type="HBoxContainer" parent="gen_options"]
+layout_mode = 2
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="gen_options"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="gen_options/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Tile Map:"
+
+[node name="TileMapOption" type="OptionButton" parent="gen_options/HBoxContainer4"]
+layout_mode = 2
+selected = 0
+allow_reselect = true
+item_count = 2
+popup/item_0/text = "Tilemap 0"
+popup/item_1/text = "Tilemap 1"
+popup/item_1/id = 1
+
 [node name="Back" type="Button" parent="gen_options"]
 layout_mode = 2
 text = "Back"
