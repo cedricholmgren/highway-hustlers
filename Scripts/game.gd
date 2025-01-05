@@ -1,40 +1,41 @@
 extends Node
 
-@onready var map = $map  # Reference to the TileMap node
 
+# Reference to the TileMapLayer node
+@onready var map = $map  
+#noise setup
 @export var noise_height_text: NoiseTexture2D
 var noise: Noise
-var map_initialized: bool = false
-var loaded_chunks: Dictionary = {}
-
+#tileset pixel size
 const TILE_SIZE: int = 16
-var water_id = 1
-var grass_id = 0
+#map gen check
 var map_gen = false
-
-# Variables to store chunk data
+#arrays for tilemap tile locations 
 var water_tiles: Array = []
 var grass_tiles: Array = []
+var loaded_chunks: Dictionary = {}
+#tile ids
+var water_id = 1
+var grass_id = 0
+# Variables to store chunk data
 var new_seed
 var map_size_x
 var map_size_y
 var tilemap_id
 
-
+#get map data from gen_options and set seed
 func set_map_data(chunk_data: Dictionary) -> void:
 	new_seed = chunk_data["new_seed"]
 	map_size_x = chunk_data["map_size_x"]
 	map_size_y = chunk_data["map_size_y"]
 	tilemap_id = chunk_data["tilemap_id"]
-	print("Map data set: Seed =", new_seed, ", Map Size =", map_size_x, "x", map_size_y)
 	noise = noise_height_text.noise
 	noise.set_seed(new_seed)
 	
 func _ready() -> void:
-	print("_ready", "new_seed", new_seed, "map_size_x", map_size_x, "map_size_y", map_size_y)
 	gen_map()
 	
-# Generate map tiles
+# Generate map tiles and store in loaded_chunks for build_map
 func gen_map() -> void:
 	if map_gen == true or map_size_x == -1 or map_size_y == -1:
 		gen_map()
@@ -61,7 +62,7 @@ func gen_map() -> void:
 	place_buildings()
 
 
-# Function to build the map using stored data
+# build the map based on loaded_chunks stored data 
 func build_map() -> void:
 	if water_tiles.is_empty() or grass_tiles.is_empty():
 		print("No map data available to build.")
