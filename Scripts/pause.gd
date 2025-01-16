@@ -13,7 +13,8 @@ func _ready():
 	$VBoxContainer/quit_game.pressed.connect(self._on_quitgame_pressed)
 	
 func _on_mainmenu_pressed() -> void:
-	call_deferred("change_scene", "res://Scenes/menu.tscn")  
+	Engine.time_scale = 1
+	call_deferred("change_scene", "res://Scenes/main.tscn")  
 
 func _on_quitgame_pressed() -> void:
 	print("Quit button pressed")
